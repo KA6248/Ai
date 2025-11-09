@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>التطبيقات | AI Techniques</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/Style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <div class="brand">AI Techniques</div>
+      <nav>
+        <ul>
+          <li><a href="home.html">الرئيسية</a></li>
+          <li><a href="AboutUs.html">من نحن</a></li>
+          <li><a href="apps.html">التطبيقات</a></li>
+          <li><a href="add_app.html">إضافة تطبيق</a></li>
+          <li><a id="logoutBtn" href="home.html">خروج</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1>قائمة التطبيقات</h1>
+      <div class="mt-3 card">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>اسم التطبيق</th>
+              <th>اسم الشركة المطوِّرة</th>
+              <th>مجال الاستخدام</th>
+              <th>مجاني/غير مجاني</th>
+              <th>إظهار التفاصيل</th>
+            </tr>
+          </thead>
+          <tbody id="appsBody">
+            <tr>
+              <td><span lang="en">ChatGPT</span></td>
+              <td><span lang="en">OpenAI</span></td>
+              <td>مساعد عام</td>
+              <td><span class="badge badge-free">مجاني</span></td>
+              <td><a href="#" class="toggle" data-target="#d-app1">إظهار التفاصيل</a></td>
+            </tr>
+            <tr class="details-row">
+              <td colspan="5">
+                <div id="d-app1" class="app-details">
+                  <div class="grid cols-2">
+                    <div>
+                      <p>مساعد ذكي للمحادثة وصياغة الأفكار وشرح المفاهيم.</p>
+                      <p class="mt-2"><a href="https://chat.openai.com" target="_blank" rel="noopener" lang="en">https://chat.openai.com</a></p>
+                    </div>
+                    <div>
+                      <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="logo">
+                        <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#00D3A7"/><stop offset="1" stop-color="#7C4DFF"/></linearGradient></defs>
+                        <rect width="120" height="120" rx="20" fill="url(#g1)"/>
+                        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-size="54" font-weight="800" fill="#0F1220" font-family="Inter, Cairo, sans-serif">C</text>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span lang="en">Midjourney</span></td>
+              <td><span lang="en">Midjourney</span></td>
+              <td>توليد الصور</td>
+              <td><span class="badge badge-paid">غير مجاني</span></td>
+              <td><a href="#" class="toggle" data-target="#d-app2">إظهار التفاصيل</a></td>
+            </tr>
+            <tr class="details-row">
+              <td colspan="5">
+                <div id="d-app2" class="app-details">
+                  <div class="grid cols-2">
+                    <div>
+                      <p>نظام يولِّد صورًا فنية عالية الجودة من الأوصاف النصية.</p>
+                      <p class="mt-2"><a href="https://www.midjourney.com" target="_blank" rel="noopener" lang="en">https://www.midjourney.com</a></p>
+                    </div>
+                    <div>
+                      <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="logo">
+                        <defs><linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#00D3A7"/><stop offset="1" stop-color="#7C4DFF"/></linearGradient></defs>
+                        <rect width="120" height="120" rx="20" fill="url(#g2)"/>
+                        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-size="54" font-weight="800" fill="#0F1220" font-family="Inter, Cairo, sans-serif">M</text>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span lang="en">Grammarly</span></td>
+              <td><span lang="en">Grammarly Inc.</span></td>
+              <td>الكتابة والتدقيق</td>
+              <td><span class="badge badge-free">مجاني</span></td>
+              <td><a href="#" class="toggle" data-target="#d-app3">إظهار التفاصيل</a></td>
+            </tr>
+            <tr class="details-row">
+              <td colspan="5">
+                <div id="d-app3" class="app-details">
+                  <div class="grid cols-2">
+                    <div>
+                      <p>مساعدة في تحسين الكتابة واقتراحات للأسلوب والقواعد.</p>
+                      <p class="mt-2"><a href="https://www.grammarly.com" target="_blank" rel="noopener" lang="en">https://www.grammarly.com</a></p>
+                    </div>
+                    <div>
+                      <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="logo">
+                        <defs><linearGradient id="g3" x1="0" x2="1"><stop offset="0" stop-color="#00D3A7"/><stop offset="1" stop-color="#7C4DFF"/></linearGradient></defs>
+                        <rect width="120" height="120" rx="20" fill="url(#g3)"/>
+                        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-size="54" font-weight="800" fill="#0F1220" font-family="Inter, Cairo, sans-serif">G</text>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span lang="en">Notion AI</span></td>
+              <td><span lang="en">Notion</span></td>
+              <td>الإنتاجية</td>
+              <td><span class="badge badge-paid">غير مجاني</span></td>
+              <td><a href="#" class="toggle" data-target="#d-app4">إظهار التفاصيل</a></td>
+            </tr>
+            <tr class="details-row">
+              <td colspan="5">
+                <div id="d-app4" class="app-details">
+                  <div class="grid cols-2">
+                    <div>
+                      <p>مساعد مدمج للكتابة والتلخيص داخل مساحات العمل.</p>
+                      <p class="mt-2"><a href="https://www.notion.so/product/ai" target="_blank" rel="noopener" lang="en">https://www.notion.so/product/ai</a></p>
+                    </div>
+                    <div>
+                      <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="logo">
+                        <defs><linearGradient id="g4" x1="0" x2="1"><stop offset="0" stop-color="#00D3A7"/><stop offset="1" stop-color="#7C4DFF"/></linearGradient></defs>
+                        <rect width="120" height="120" rx="20" fill="url(#g4)"/>
+                        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-size="54" font-weight="800" fill="#0F1220" font-family="Inter, Cairo, sans-serif">N</text>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span lang="en">GitHub Copilot</span></td>
+              <td><span lang="en">GitHub</span></td>
+              <td>المساعدة في البرمجة</td>
+              <td><span class="badge badge-paid">غير مجاني</span></td>
+              <td><a href="#" class="toggle" data-target="#d-app5">إظهار التفاصيل</a></td>
+            </tr>
+            <tr class="details-row">
+              <td colspan="5">
+                <div id="d-app5" class="app-details">
+                  <div class="grid cols-2">
+                    <div>
+                      <p>اقتراحات ذكية للشيفرة وإكمال تلقائي داخل المحرر.</p>
+                      <p class="mt-2"><a href="https://github.com/features/copilot" target="_blank" rel="noopener" lang="en">https://github.com/features/copilot</a></p>
+                    </div>
+                    <div>
+                      <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="logo">
+                        <defs><linearGradient id="g5" x1="0" x2="1"><stop offset="0" stop-color="#00D3A7"/><stop offset="1" stop-color="#7C4DFF"/></linearGradient></defs>
+                        <rect width="120" height="120" rx="20" fill="url(#g5)"/>
+                        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-size="54" font-weight="800" fill="#0F1220" font-family="Inter, Cairo, sans-serif">C</text>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <!-- سيتم إضافة أي تطبيق جديد هنا ديناميكيًا من localStorage -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container center">
+      <div>© <span lang="en">AI Techniques</span> — جميع الحقوق محفوظة</div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="assets/js/myFunctions.js"></script>
+</body>
+</html>

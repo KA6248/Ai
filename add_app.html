@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>إضافة تطبيق | AI Techniques</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/Style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <div class="brand">AI Techniques</div>
+      <nav>
+        <ul>
+          <li><a href="home.html">الرئيسية</a></li>
+          <li><a href="AboutUs.html">من نحن</a></li>
+          <li><a href="apps.html">التطبيقات</a></li>
+          <li><a href="add_app.html">إضافة تطبيق</a></li>
+          <li><a id="logoutBtn" href="home.html">خروج</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1>إضافة تطبيق جديد</h1>
+      <form id="appForm" class="card mt-3" novalidate>
+        <div class="form-grid two">
+          <div>
+            <label for="name">اسم التطبيق (أحرف إنجليزية فقط، دون فراغات)</label>
+            <input id="name" name="name" type="text" class="input" placeholder="مثال: ChatGPT" inputmode="latin" autocomplete="off" required>
+            <div class="hint">مثل: <span lang="en">ChatGPT, Midjourney</span></div>
+            <div class="error" id="err-name"></div>
+          </div>
+
+          <div>
+            <label for="company">اسم الشركة المصنِّعة (أحرف إنجليزية فقط)</label>
+            <input id="company" name="company" type="text" class="input" placeholder="مثال: OpenAI" inputmode="latin" autocomplete="organization" required>
+            <div class="hint">يمكن أن يتكوّن من أكثر من كلمة إنجليزية.</div>
+            <div class="error" id="err-company"></div>
+          </div>
+
+          <div>
+            <label for="url">الموقع الإلكتروني (URL)</label>
+            <input id="url" name="url" type="url" class="input" placeholder="https://example.com" inputmode="url" required>
+            <div class="error" id="err-url"></div>
+          </div>
+
+          <div>
+            <label for="domain">مجال الاستخدام</label>
+            <select id="domain" name="domain" class="select" required>
+              <option value="" selected disabled>اختر المجال</option>
+              <option value="التعليم">التعليم</option>
+              <option value="التجارة الإلكترونية">التجارة الإلكترونية</option>
+              <option value="البرمجة">البرمجة</option>
+              <option value="الإنتاجية">الإنتاجية</option>
+              <option value="الصحة">الصحة</option>
+              <option value="التمويل">التمويل</option>
+              <option value="الروبوتات">الروبوتات</option>
+              <option value="الإبداعي">الإبداعي</option>
+              <option value="مساعد عام">مساعد عام</option>
+              <option value="أخرى">أخرى</option>
+            </select>
+            <div class="error" id="err-domain"></div>
+          </div>
+        </div>
+
+        <div class="mt-3">
+          <label>مجاني/غير مجاني</label>
+          <div class="mt-1">
+            <label style="margin-inline-end:16px"><input type="radio" name="pricing" value="free"> مجاني</label>
+            <label><input type="radio" name="pricing" value="paid"> غير مجاني</label>
+          </div>
+          <div class="error" id="err-pricing"></div>
+        </div>
+
+        <div class="mt-3">
+          <label for="description">شرح مختصر عن التطبيق</label>
+          <textarea id="description" name="description" class="textarea" rows="4" placeholder="نبذة قصيرة توضح فكرة التطبيق وفائدته..." required></textarea>
+          <div class="error" id="err-description"></div>
+        </div>
+
+        <div class="mt-4" style="display:flex; gap:12px; flex-wrap:wrap">
+          <button type="submit" class="btn btn-primary">إرسال</button>
+          <button type="reset" class="btn btn-ghost" id="resetBtn">إعادة</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container center">
+      <div>© <span lang="en">AI Techniques</span> — جميع الحقوق محفوظة</div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="assets/js/myFunctions.js"></script>
+  <script>
+    $(function () {
+      const $f = $("#appForm");
+
+      function setErr(id, msg){ $("#"+id).text(msg || ""); }
+      function hasVal(v){ return v != null && String(v).trim() !== ""; }
+
+      function isNameValid(v){ return /^[A-Za-z]+$/.test(v); }                // أحرف إنجليزية فقط، دون فراغات
+      function isCompanyValid(v){ return /^[A-Za-z]+(?:\s[A-Za-z]+)*$/.test(v); } // أحرف إنجليزية، يسمح بفراغات بين الكلمات
+      function isURLValid(v){
+        try { const u = new URL(v); return /^https?:$/.test(u.protocol); } catch(e){ return false; }
+      }
+
+      $f.on("submit", function(e){
+        e.preventDefault();
+
+        const name = $("#name").val().trim();
+        const company = $("#company").val().trim();
+        const url = $("#url").val().trim();
+        const domain = $("#domain").val();
+        const pricing = ($("input[name='pricing']:checked").val() || "").trim();
+        const description = $("#description").val().trim();
+
+        let ok = true;
+
+        if(!hasVal(name) || !isNameValid(name)){
+          setErr("err-name","يجب أن يكون اسم التطبيق أحرفًا إنجليزية فقط دون فراغات.");
+          ok = false;
+        } else setErr("err-name","");
+
+        if(!hasVal(company) || !isCompanyValid(company)){
+          setErr("err-company","اسم الشركة بأحرف إنجليزية فقط، ويمكن كلمات متعددة مفصولة بفراغ.");
+          ok = false;
+        } else setErr("err-company","");
+
+        if(!hasVal(url) || !isURLValid(url)){
+          setErr("err-url","الرجاء إدخال رابط صحيح يبدأ بـ http أو https.");
+          ok = false;
+        } else setErr("err-url","");
+
+        if(!hasVal(domain)){
+          setErr("err-domain","اختر مجال الاستخدام.");
+          ok = false;
+        } else setErr("err-domain","");
+
+        if(!hasVal(pricing)){
+          setErr("err-pricing","اختر الحالة: مجاني أو غير مجاني.");
+          ok = false;
+        } else setErr("err-pricing","");
+
+        if(!hasVal(description) || description.length < 10){
+          setErr("err-description","أدخل وصفًا مختصرًا لا يقل عن 10 أحرف.");
+          ok = false;
+        } else setErr("err-description","");
+
+        if(!ok) return;
+
+        const payload = { name, company, url, domain, pricing, description };
+        try {
+          localStorage.setItem("ai_new_app", JSON.stringify(payload));
+          window.location.href = "apps.html";
+        } catch(err){
+          alert("تعذّر حفظ البيانات محليًا. جرّب متصفحًا آخر.");
+        }
+      });
+
+      $("#resetBtn").on("click", function(){
+        setErr("err-name",""); setErr("err-company",""); setErr("err-url","");
+        setErr("err-domain",""); setErr("err-pricing",""); setErr("err-description","");
+      });
+
+      $("#logoutBtn").on("click", function () { localStorage.clear(); });
+    });
+  </script>
+</body>
+</html>
